@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档：2017/7 | 海心心</title>
+  <title>前端mvc初涉略 | 海心心</title>
   <meta name="author" content="haixin">
   
   <meta name="description" content="开始搞掂事情">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="前端mvc初涉略"/>
   <meta property="og:site_name" content="海心心"/>
 
   
@@ -67,35 +67,117 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2017/7</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-07-11T11:30:21.000Z"><a href="/2017/07/11/前端mvc初涉略/">2017-07-11</a></time>
+      
+      
+  
+    <h1 class="title">前端mvc初涉略</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+        <p>模块化的两个模式</p>
+<h3 id="放大模式"><a href="#放大模式" class="headerlink" title="放大模式"></a>放大模式</h3><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用”放大模式”（augmentation）。</p>
+<pre><code class="bash">var module1 = (<span class="keyword">function</span> (mod){
+　　　　mod.m3 = <span class="function"><span class="title">function</span></span> () {
+　　　　　　//...
+　　　　};
+　　　　<span class="built_in">return</span> mod;
+　　})(module1);
+</code></pre>
+<p>上面的代码为module1模块添加了一个新方法m3（），然后返回新的moudule1模块</p>
 
-  <div class="archive">
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-07-11T11:30:21.000Z"><a href="/2017/07/11/前端mvc初涉略/">2017-07-11</a></time>
+      
+    </div>
+    <footer>
+      
+
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2017/07/11/hello-world/">初使用</a>
+          </div>
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
             
-              <h1 class="title"><a href="/2017/07/11/前端mvc初涉略/">前端mvc初涉略</a></h1>
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
             
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-07-11T06:11:19.000Z"><a href="/2017/07/11/hello-world/">2017-07-11</a></time>
             
-              <h1 class="title"><a href="/2017/07/11/hello-world/">初使用</a></h1>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2017/07/11/前端mvc初涉略/">
+                  http://vein.com/2017/07/11/前端mvc初涉略/
+                </a>
+              </span>
             
-          </header>
-        </div>
-      </article>
-    
+          </div>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/前端/">前端</a>
   </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/前端/">前端</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+      <a class="addthis_button_sinaweibo_like"></a>
+    
+    
+      <a class="addthis_button_linkedin"></a>
+    
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://vein.com/2017/07/11/前端mvc初涉略/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
