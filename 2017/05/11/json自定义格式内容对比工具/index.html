@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>json自定义格式内容对比工具 | 心海</title>
+  <meta name="author" content="haixin">
+  
+  <meta name="description" content="开始搞掂事情">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="json自定义格式内容对比工具"/>
+  <meta property="og:site_name" content="心海"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="心海" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="/js/jquery.min.js"></script>
+
+  
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45019001-1', 'topdna.org');
+  ga('send', 'pageview');
+</script>
+
+
+</head>
+
+
+<body>
+  <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">心海</a></h1>
+  <h2><a href="/">often do, not do things.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/categories/java/">java</a></li>
+    
+      <li><a href="/categories/python/">python</a></li>
+    
+      <li><a href="/categories/theory/">理论</a></li>
+    
+      <li><a href="/categories/automation/">框架</a></li>
+    
+      <li><a href="/categories/essay/">杂</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-05-11T11:30:21.000Z"><a href="/2017/05/11/json自定义格式内容对比工具/">2017-05-11</a></time>
+      
+      
+  
+    <h1 class="title">json自定义格式内容对比工具</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="需求背景："><a href="#需求背景：" class="headerlink" title="需求背景："></a>需求背景：</h3><p>风控决策引擎的需求树和配置界面比对，由于树比较“粗壮”，人工比对工作量实在太大，由于树是有json绘制而成，故可以将树的json与配置界面的结果——数据库中的json做比对，提升工作效率。</p>
+<ul>
+<li>part 1 :json文件导入</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import json </div><div class="line">d1 = json.load(open(&apos;/文件目录/json1.json&apos;))</div><div class="line">d2 = json.load(open(&apos;/文件目录/json2.json&apos;))</div></pre></td></tr></table></figure>
+<ul>
+<li>part 2 : 修改自定义规则部分</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#遍历json，将两个json中对应的key，但命名不一致部分修改为相同的；将value格式不同的修改为相同的</div><div class="line"></div><div class="line">def cmp_dict(a,b):</div><div class="line">    if isinstance(a,dict):</div><div class="line">		for key,value in a.items():</div><div class="line">                    keyb = key</div><div class="line">                    if key == &apos;code&apos;:</div><div class="line">                        a[key] = a[key].replace(&apos;_&apos;,&apos;.&apos;)</div><div class="line">                        value = value.replace(&apos;_&apos;,&apos;.&apos;)</div><div class="line">                        keyb = &apos;_name&apos;</div><div class="line">                    if key == &apos;condition&apos;:</div><div class="line">                        keyb = &apos;conditions&apos;</div><div class="line">                    if  key == &apos;math&apos;:</div><div class="line">                        keyb = &apos;ruleFusion&apos;</div><div class="line">                        for case in switch(a[key]):</div><div class="line">                            if case(&apos;VECTORNORM(2)&apos;):</div><div class="line">                                a[key] = &apos;rfmNorm2&apos;</div><div class="line">                                break</div><div class="line">                            。</div><div class="line">                            。</div><div class="line">                            。</div><div class="line">                            if case(): # 默认</div><div class="line">                                print &quot;something else!&quot;</div><div class="line">                    ＃将json中多个值组装后，再匹配 的逻辑较多，不展示了</div><div class="line">                    ＃最后，加个递归调用</div><div class="line">                    cmp_dict(a[key],b[keyb])</div></pre></td></tr></table></figure>
+<ul>
+<li>part 3 :由于上面switch部分较多，为了避免写太多if…else导致可读性太差，编写了一个switch类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class switch(object):</div><div class="line">    def __init__(self, value):</div><div class="line">        self.value = value</div><div class="line">        self.fall = False</div><div class="line"></div><div class="line">    def __iter__(self):</div><div class="line">        &quot;&quot;&quot;Return the match method once, then stop&quot;&quot;&quot;</div><div class="line">        yield self.match</div><div class="line">        raise StopIteration</div><div class="line"></div><div class="line">    def match(self, *args):</div><div class="line">        &quot;&quot;&quot;Indicate whether or not to enter a case suite&quot;&quot;&quot;</div><div class="line">        if self.fall or not args:</div><div class="line">            return True</div><div class="line">        elif self.value in args: # changed for v1.5, see below</div><div class="line">            self.fall = True</div><div class="line">            return True</div><div class="line">        else:</div><div class="line">            return False</div></pre></td></tr></table></figure>
+<ul>
+<li>part 4 处理dict中嵌套list的情况</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">elif isinstance(a,list):</div><div class="line">            #sorted方法为python中list的排序方法；zip方法将两个list中对应的数据打包成元组</div><div class="line">            for src_list, dst_list in zip(sorted(a, key=lambda x : (x.get(&apos;level&apos;, 0))),sorted(b, key=lambda x : (x.get(&apos;level&apos;, 0)))):</div><div class="line">                 ＃将json中多个值组装后，再匹配 的逻辑较多，不展示了</div><div class="line">                 ＃最后，加个递归调用</div><div class="line">                 cmp_dict(src_list, dst_list)</div></pre></td></tr></table></figure>
+<ul>
+<li>part 5 :异常处理及测试</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">try</div><div class="line">   ...</div><div class="line">except:</div><div class="line"></div><div class="line">        f=open(&quot;/文件目录/log.txt&quot;,&apos;a&apos;)</div><div class="line">        traceback.print_exc(file=f)</div><div class="line">        f.flush()</div><div class="line">        f.close()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    xx = &#123;&quot;111&quot;:None,&quot;23456&quot;:&#123;&quot;22222&quot;:9999,&quot;33333&quot;:&quot;0000&quot;,&quot;list&quot;:[&quot;3333&quot;,&quot;4444&quot;,&quot;111&quot;]&#125;&#125;</div><div class="line">    yy = &#123;&quot;111&quot;:None,&quot;23456&quot;:&#123;&quot;22222&quot;:9999,&quot;33333&quot;:&quot;0000&quot;,&quot;list&quot;:[&quot;111&quot;,&quot;3333&quot;,&quot;4444&quot;]&#125;&#125;</div><div class="line">    mp_dict(x,y)</div><div class="line">    cmp_dict(d1,d2)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+
+        
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="/2017/07/10/springboot搭建feature回归系统/">springboot搭建feature回归系统</a>
+          </div>
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2017/03/11/前端mvc涉略/">前端mvc涉略</a>
+          </div>
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2017/05/11/json自定义格式内容对比工具/">
+                  http://vein.com/2017/05/11/json自定义格式内容对比工具/
+                </a>
+              </span>
+            
+          </div>
+        
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+      <a class="addthis_button_sinaweibo_like"></a>
+    
+    
+      <a class="addthis_button_linkedin"></a>
+    
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+</section>
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜一下">
+    <i class="icon-search"></i>
+    <input type="hidden" name="q" value="site:vein.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/essay/">essay</a><small>1</small></li>
+  
+    <li><a href="/tags/java/">java</a><small>1</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>1</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="trace-invest">
+    <span>
+        
+    </span>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2017/07/11/特征值mock工具/">特征值mock工具</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/10/springboot搭建feature回归系统/">springboot搭建feature回归系统</a>
+      </li>
+    
+      <li>
+        <a href="/2017/05/11/json自定义格式内容对比工具/">json自定义格式内容对比工具</a>
+      </li>
+    
+      <li>
+        <a href="/2017/03/11/前端mvc涉略/">前端mvc涉略</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/12/测试攻城狮/">测试攻城狮的要求</a>
+      </li>
+    
+      <li>
+        <a href="/2017/01/12/搜集好博客-做早课/">搜集好博客,做早课</a>
+      </li>
+    
+      <li>
+        <a href="/2017/01/11/博客搭建——基于hexo和git/">搭建一个博客</a>
+      </li>
+    
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <div id="go-pg-top"><i class="icon-arrow-up"></i></div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+ <p class="right" style="margin-top: 0;">
+<span id="busuanzi_container_site_uv" style="display: none;">
+您好，您是本站点的第 <span id="busuanzi_value_site_uv" style="color: black;"></span> 位访客，祝您生活工作愉快
+</span></p>
+
+
+  &copy; 2017 haixin
+  
+
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/page.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+ 
+</body>
+
+</html>
