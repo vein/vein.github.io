@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>springboot搭建feature回归系统(二)mybatis | 海xin的网络日志</title>
+  <meta name="author" content="haixin">
+  
+  <meta name="description" content="开始搞掂事情">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="springboot搭建feature回归系统(二)mybatis"/>
+  <meta property="og:site_name" content="海xin的网络日志"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="海xin的网络日志" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="/js/jquery.min.js"></script>
+
+  
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45019001-1', 'topdna.org');
+  ga('send', 'pageview');
+</script>
+
+
+</head>
+
+
+<body>
+  <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">海xin的网络日志</a></h1>
+  <h2><a href="/">often do, not do things.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/categories/java/">java</a></li>
+    
+      <li><a href="/categories/python/">python</a></li>
+    
+      <li><a href="/categories/theory/">理论</a></li>
+    
+      <li><a href="/categories/automation/">框架</a></li>
+    
+      <li><a href="/categories/essay/">杂</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-07-24T13:32:57.000Z"><a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">2017-07-24</a></time>
+      
+      
+  
+    <h1 class="title">springboot搭建feature回归系统(二)mybatis</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h3><ul>
+<li>简介：基于java的轻量级的持久层框架<br>面向对象－－－&gt;面向配置（切片）的编程，增强程序的可维护性</li>
+</ul>
+<h4 id="0-创建数据库"><a href="#0-创建数据库" class="headerlink" title="0.创建数据库"></a>0.创建数据库</h4><p>创建数据库，建立表，添加一条记录</p>
+<h4 id="1-创建product实体类"><a href="#1-创建product实体类" class="headerlink" title="1.创建product实体类"></a>1.创建product实体类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class Product &#123;</div><div class="line">    private  int id;</div><div class="line">    private String productName;</div><div class="line">    private String comment;</div><div class="line">    private  String status;</div><div class="line">    //批量添加set,get方法</div></pre></td></tr></table></figure>
+<h4 id="2-创建配置文件-mybatisConfig-xml"><a href="#2-创建配置文件-mybatisConfig-xml" class="headerlink" title="2.创建配置文件 mybatisConfig.xml"></a>2.创建配置文件 mybatisConfig.xml</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE configuration</div><div class="line">        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</div><div class="line">        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;configuration&gt;</div><div class="line">    &lt;environments default=&quot;development&quot;&gt;</div><div class="line">        &lt;environment id=&quot;development&quot;&gt;</div><div class="line">            &lt;transactionManager type=&quot;JDBC&quot;/&gt;</div><div class="line">            &lt;dataSource type=&quot;POOLED&quot;&gt;</div><div class="line">                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;</div><div class="line">                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://001.pub.mysql.qa.wacai.info:3307/haixin&quot;/&gt;</div><div class="line">                &lt;property name=&quot;username&quot; value=&quot;qa_conn&quot;/&gt;</div><div class="line">                &lt;property name=&quot;password&quot; value=&quot;qa_conn&quot;/&gt;</div><div class="line">            &lt;/dataSource&gt;</div><div class="line">        &lt;/environment&gt;</div><div class="line">    &lt;/environments&gt;</div><div class="line">    &lt;mappers&gt;</div><div class="line">        &lt;mapper resource=&quot;mapping/procuctMapper.xml&quot;/&gt;</div><div class="line">    &lt;/mappers&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
+<p>其中mybatisConfig.xml中引用map文件的方式种类举例</p>
+<ul>
+<li>相对路径引用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;mappers&gt;</div><div class="line">  &lt;mapper resource =&quot;jike/book/map/jikeUser.xml&quot;&gt;</div><div class="line">&lt;mappers&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>绝对路径引用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;mappers&gt;</div><div class="line">  &lt;mapper resource =&quot;file:///var/jike/book/map/jikeUser.xml&quot;&gt;</div><div class="line">&lt;mappers&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>包路径引用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;package name = &quot;a.b.c&quot;&gt;</div></pre></td></tr></table></figure>
+<h4 id="3-创建dao文件-ProductMapper-java"><a href="#3-创建dao文件-ProductMapper-java" class="headerlink" title="3. 创建dao文件 ProductMapper.java"></a>3. 创建dao文件 ProductMapper.java</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public interface ProductMapper &#123;</div><div class="line">    Product selectByStatus(String  status);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-创建map文件-productMapper-xml"><a href="#4-创建map文件-productMapper-xml" class="headerlink" title="4. 创建map文件 productMapper.xml"></a>4. 创建map文件 productMapper.xml</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</div><div class="line">&lt;mapper namespace=&quot;com.wacai.qa.dao.ProductMapper&quot;&gt;</div><div class="line"></div><div class="line">#注意，上面的mapper的namespace应该为dao的地址</div><div class="line">#注意：这里的id :selectByStatus 与上面的接口名一致</div><div class="line"></div><div class="line">    &lt;select id=&quot;selectByStatus&quot; parameterType=&quot;java.lang.String&quot; resultType=&quot;com.wacai.qa.model.Product&quot;&gt;</div><div class="line">        select *</div><div class="line">        from product</div><div class="line">        where status = #&#123;status&#125;</div><div class="line">    &lt;/select&gt;</div><div class="line"></div><div class="line">&lt;/mapper&gt;</div></pre></td></tr></table></figure>
+<select id="findeById" parametertype="int" resulttype="jike.book.pojo.JikeUser"><br>    select * from JikeUser where id  = # {id}<br></select>
+
+
+
+<h4 id="5-编写测试类"><a href="#5-编写测试类" class="headerlink" title="5.编写测试类"></a>5.编写测试类</h4><h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><ul>
+<li>读取配置文件(数据库连接基本信息)</li>
+<li>生成sqlSessionFactory</li>
+<li>建立sqlSession</li>
+<li>调用Mybatis提供的api（执行sql）</li>
+<li>查询mpl配置</li>
+<li>返回结果</li>
+<li>关闭sqlSession</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public class ProductController &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        String resource = &quot;mapping/MyBatisConfig.xml&quot;;</div><div class="line">        InputStream inputStream = null;</div><div class="line">        try &#123;</div><div class="line">            inputStream = Resources.getResourceAsStream(resource);</div><div class="line">        &#125; catch (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        SqlSessionFactory sqlMapper = new SqlSessionFactoryBuilder().build(inputStream);</div><div class="line"></div><div class="line">        SqlSession  session = sqlMapper.openSession();</div><div class="line">        Product result = session.selectOne(&quot;selectByStatus&quot;,&quot;normal&quot;);</div><div class="line">        System.out.println(result.getProduct());</div><div class="line">        session.close();</div></pre></td></tr></table></figure>
+<h4 id="6-查看mybatis的sql可以通过配置日志看到"><a href="#6-查看mybatis的sql可以通过配置日志看到" class="headerlink" title="6.查看mybatis的sql可以通过配置日志看到"></a>6.查看mybatis的sql可以通过配置日志看到</h4><p>加入日志配置文件log4j.properties<br>log4j.rootLogger-DEBUG,Console</p>
+<p>log4j.rootCategory=debug, stdout , R0</p>
+<p>log4j.appender.stdout = org.apache.log4j.ConsoleAppender<br>log4j.appender.stdout.layout = org.apache.log4j.PatternLayout<br>log4j.appender.stdout.layout.ConversionPattern = %-20d{yyyy-MM-dd HH\:mm\:ss}<a href="%c">%-5p</a> (%F\:%L) - %m%n</p>
+<p>log4j.appender.R0=org.apache.log4j.DailyRollingFileAppender<br>log4j.appender.R0.layout=org.apache.log4j.PatternLayout<br>log4j.appender.R0.layout.ConversionPattern=%-20d{yyyy-MM-dd HH\:mm\:ss}<a href="%c">%-5p</a> (%F\:%L) - %m%n<br>log4j.appender.R0.DatePattern=’.’yyyy-MM-dd<br>log4j.appender.R0.File=logs/jsDataRoadApp.log</p>
+
+      
+    </div>
+    <footer>
+      
+
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2017/07/20/java-log相关/">java log相关</a>
+          </div>
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">
+                  http://vein.com/2017/07/24/springboot搭建feature回归系统-二-mybatis/
+                </a>
+              </span>
+            
+          </div>
+        
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+      <a class="addthis_button_sinaweibo_like"></a>
+    
+    
+      <a class="addthis_button_linkedin"></a>
+    
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+</section>
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜一下">
+    <i class="icon-search"></i>
+    <input type="hidden" name="q" value="site:vein.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/essay/">essay</a><small>1</small></li>
+  
+    <li><a href="/tags/java/">java</a><small>2</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>1</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="trace-invest">
+    <span>
+        
+    </span>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">springboot搭建feature回归系统(二)mybatis</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/20/java-log相关/">java log相关</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/20/java多线程/">java多线程</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/19/java代码基本语法辨析/">java代码基本语法辨析</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/11/特征值mock工具/">特征值mock工具</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/10/springboot搭建feature回归系统(一)需求/">springboot搭建feature回归系统(一)需求</a>
+      </li>
+    
+      <li>
+        <a href="/2017/05/11/json自定义格式内容对比工具/">json自定义格式内容对比工具</a>
+      </li>
+    
+      <li>
+        <a href="/2017/03/11/前端mvc涉略/">前端mvc涉略</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/12/测试攻城狮/">测试攻城狮的要求</a>
+      </li>
+    
+      <li>
+        <a href="/2017/01/12/搜集好博客-做早课/">搜集好博客,做早课</a>
+      </li>
+    
+      <li>
+        <a href="/2017/01/11/博客搭建——基于hexo和git/">搭建一个博客</a>
+      </li>
+    
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <div id="go-pg-top"><i class="icon-arrow-up"></i></div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+ <p class="right" style="margin-top: 0;">
+<span id="busuanzi_container_site_uv" style="display: none;">
+您好，您是本站点的第 <span id="busuanzi_value_site_uv" style="color: black;"></span> 位访客，祝您生活工作愉快
+</span></p>
+
+
+  &copy; 2017 haixin
+  
+
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/page.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+ 
+</body>
+
+</html>

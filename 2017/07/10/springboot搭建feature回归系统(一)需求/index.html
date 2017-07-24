@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>前端mvc涉略 | 海xin的网络日志</title>
+  <title>springboot搭建feature回归系统(一)需求 | 海xin的网络日志</title>
   <meta name="author" content="haixin">
   
   <meta name="description" content="开始搞掂事情">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="前端mvc涉略"/>
+  <meta property="og:title" content="springboot搭建feature回归系统(一)需求"/>
   <meta property="og:site_name" content="海xin的网络日志"/>
 
   
@@ -72,26 +72,30 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2017-03-11T11:30:21.000Z"><a href="/2017/03/11/前端mvc涉略/">2017-03-11</a></time>
+        <time datetime="2017-07-10T01:55:20.000Z"><a href="/2017/07/10/springboot搭建feature回归系统(一)需求/">2017-07-10</a></time>
       
       
   
-    <h1 class="title">前端mvc涉略</h1>
+    <h1 class="title">springboot搭建feature回归系统(一)需求</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>模块化的两个模式</p>
-<h3 id="放大模式"><a href="#放大模式" class="headerlink" title="放大模式"></a>放大模式</h3><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用”放大模式”（augmentation）。</p>
-<pre><code class="bash">var module1 = (<span class="keyword">function</span> (mod){
-　　　　mod.m3 = <span class="function"><span class="title">function</span></span> () {
-　　　　　　//...
-　　　　};
-　　　　<span class="built_in">return</span> mod;
-　　})(module1);
-</code></pre>
-<p>上面的代码为module1模块添加了一个新方法m3（），然后返回新的moudule1模块</p>
+        <p>springboot入门教程：<br><a href="http://www.cnblogs.com/winner-0715/p/6666302.html" target="_blank" rel="external">http://www.cnblogs.com/winner-0715/p/6666302.html</a><br><a href="http://www.jianshu.com/p/99fcead32d35" target="_blank" rel="external">http://www.jianshu.com/p/99fcead32d35</a><br><a href="http://www.jianshu.com/p/a9e695a2f3f6" target="_blank" rel="external">http://www.jianshu.com/p/a9e695a2f3f6</a><br>，<a href="https://github.com/435242634/Spring-Boot-Demo/tree/feature/4-spring-boot-mybatis-xml" target="_blank" rel="external">https://github.com/435242634/Spring-Boot-Demo/tree/feature/4-spring-boot-mybatis-xml</a></p>
+<p>flex</p>
+<h3 id="需求背景："><a href="#需求背景：" class="headerlink" title="需求背景："></a>需求背景：</h3><p>风控决策引擎中，根据用户的特征值来得出策略结果，用户特征值部分的产生较为负责，需要一系列数据符合一些规则才会产生需要的特征值，所以测试策略结果时，如果能跳过特征值产生而插入特定数据这一步，直接mock，分层测试，会让测试策略更有效率</p>
+<h3 id="涉及技术栈："><a href="#涉及技术栈：" class="headerlink" title="涉及技术栈："></a>涉及技术栈：</h3><p>据说最爽的Web组合开发就是Intellij IDEA + Maven + Spring Boot + Velocity + Boostrap + jQuery了</p>
+<p>SB使用Velocity的依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">     &lt;artifactId&gt;spring-boot-starter-velocity&lt;/artifactId&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure></p>
+<p>默认配置下spring boot会从src/main/resources/templates目录中去找模板</p>
+<h3 id="SB的velocity配置"><a href="#SB的velocity配置" class="headerlink" title="SB的velocity配置"></a>SB的velocity配置</h3><p>application.properties配置</p>
+<p>lightsword/src/main/resources/application.properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># VELOCITY TEMPLATES (VelocityAutoConfiguration)</div><div class="line">spring.velocity.charset=UTF-8</div><div class="line">spring.velocity.properties.input.encoding=UTF-8</div><div class="line">spring.velocity.properties.output.encoding=UTF-8</div><div class="line">spring.velocity.resourceLoaderPath=classpath:/templates/</div><div class="line">spring.velocity.suffix=.html</div><div class="line">spring.velocity.toolbox-config-location=/WEB-INF/toolbox.xml</div></pre></td></tr></table></figure></p>
+<h3 id="mybatis-配置"><a href="#mybatis-配置" class="headerlink" title="mybatis 配置"></a>mybatis 配置</h3><p>正常配置需要添加三个文件，这里使用mybatis－generator来生成mybatis相关文件<br>教程：<a href="http://www.jianshu.com/p/73b6cb2e04fc；教程中第四步的Plugins在idea的左侧“maven" target="_blank" rel="external">http://www.jianshu.com/p/73b6cb2e04fc；教程中第四步的Plugins在idea的左侧“maven</a> projects”中</p>
+<h3 id="框架搭建完成"><a href="#框架搭建完成" class="headerlink" title="框架搭建完成"></a>框架搭建完成</h3><p><a href="http://www.jianshu.com/p/99fcead32d35" target="_blank" rel="external">http://www.jianshu.com/p/99fcead32d35</a></p>
+<h3 id="设计模块和类"><a href="#设计模块和类" class="headerlink" title="设计模块和类"></a>设计模块和类</h3><p>@所有人 大家工程建完后，在下周上课前把模块和类设计下，分下任务，就先按照自己的思路来写就行了，你要写在一个类里面也没有问题的。然后下周我会讲下简单的springboot、maven的东西，反正你们照着抄就行了，原理等后面帛书给你们讲</p>
+<h3 id="java注解学习"><a href="#java注解学习" class="headerlink" title="java注解学习"></a>java注解学习</h3><p><a href="https://juejin.im/entry/5952649f6fb9a06bc06a34ac" target="_blank" rel="external">https://juejin.im/entry/5952649f6fb9a06bc06a34ac</a></p>
+<h3 id="数据库创建"><a href="#数据库创建" class="headerlink" title="数据库创建"></a>数据库创建</h3><p>项目原型图：<br>随便用用axure,只是表达意思，动态效果较少请见谅<br><img src="/images/首页.png" alt="“首页”"><br><img src="/images/列表.png" alt="“列表”"><br><img src="/images/用例创建.png" alt="“用例创建”"><br><img src="/images/回归比对.png" alt="“回归比对”"><br><img src="/images/sql插入工具.png" alt="“sql插入工具”"></p>
+<h3 id="项目分析："><a href="#项目分析：" class="headerlink" title="项目分析："></a>项目分析：</h3><p>数据库表设计</p>
 
       
     </div>
@@ -100,12 +104,12 @@
 
         
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2017/05/11/json自定义格式内容对比工具/">json自定义格式内容对比工具</a>
+            <em>上一篇: </em><a href="/2017/07/11/特征值mock工具/">特征值mock工具</a>
           </div>
         
         
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2017/02/12/测试攻城狮/">测试攻城狮的要求</a>
+            <em>下一篇: </em><a href="/2017/05/11/json自定义格式内容对比工具/">json自定义格式内容对比工具</a>
           </div>
           <div class="clearfix"></div>
         
@@ -118,8 +122,8 @@
             
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2017/03/11/前端mvc涉略/">
-                  http://vein.com/2017/03/11/前端mvc涉略/
+                <a href="/2017/07/10/springboot搭建feature回归系统(一)需求/">
+                  http://vein.com/2017/07/10/springboot搭建feature回归系统(一)需求/
                 </a>
               </span>
             
@@ -128,13 +132,13 @@
         
   
   <div class="categories">
-    <a href="/categories/前端/">前端</a>
+    <a href="/categories/java/">java</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/前端/">前端</a>
+    <a href="/tags/java/">java</a>
   </div>
 
         
