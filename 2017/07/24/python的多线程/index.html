@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>python | 海xin的网络日志</title>
+  <title>python的多线程 | 海xin的网络日志</title>
   <meta name="author" content="haixin">
   
   <meta name="description" content="开始搞掂事情">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="python的多线程"/>
   <meta property="og:site_name" content="海xin的网络日志"/>
 
   
@@ -67,35 +67,132 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">python</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-07-24T08:09:59.000Z"><a href="/2017/07/24/python的多线程/">2017-07-24</a></time>
+      
+      
+  
+    <h1 class="title">python的多线程</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+        <p>python中的线程</p>
+<p>如何使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import threading #首先导入threading 模块，这是使用多线程的前提。</div><div class="line"></div><div class="line"></div><div class="line">threads = []  #创建threads数组</div><div class="line"></div><div class="line">t1 = threading.Thread(target=music,args=(u&apos;爱情买卖&apos;,))  #创建线程t1</div><div class="line"></div><div class="line">threads.append(t1)  #把创建好的线程装入threads数组中</div></pre></td></tr></table></figure></p>
+<p>使用threading.Thread()方法，在这个方法中调用music方法target=music,args方法对music进行传参。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    for t in threads:</div><div class="line">        t.setDaemon(True)  #申明守护线程，必须在start方法调用之前设置，如果不设置为守护线程，程序会被无限刮起。</div><div class="line">        t.start()</div><div class="line"></div><div class="line">    t.join() #在子线程完成运行之前，这个子线程的父线程将一直被阻塞；如果没有添加，则父线程执行完成后，导致子线程终止</div><div class="line"></div><div class="line">    print &quot;all over %s&quot; %ctime()</div></pre></td></tr></table></figure>
 
-  <div class="archive">
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-07-24T08:09:59.000Z"><a href="/2017/07/24/python的多线程/">2017-07-24</a></time>
+      
+    </div>
+    <footer>
+      
+
+        
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">springboot搭建feature回归系统(二)mybatis</a>
+          </div>
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2017/07/20/java-log相关/">java log相关</a>
+          </div>
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
             
-              <h1 class="title"><a href="/2017/07/24/python的多线程/">python的多线程</a></h1>
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
             
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-07-11T11:30:21.000Z"><a href="/2017/07/11/特征值mock工具/">2017-07-11</a></time>
             
-              <h1 class="title"><a href="/2017/07/11/特征值mock工具/">特征值mock工具</a></h1>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2017/07/24/python的多线程/">
+                  http://vein.com/2017/07/24/python的多线程/
+                </a>
+              </span>
             
-          </header>
-        </div>
-      </article>
-    
+          </div>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/python/">python</a>
   </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/python/">python</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+      <a class="addthis_button_sinaweibo_like"></a>
+    
+    
+      <a class="addthis_button_linkedin"></a>
+    
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+</section>
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">

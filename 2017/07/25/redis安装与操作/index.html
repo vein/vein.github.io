@@ -82,7 +82,22 @@
     </header>
     <div class="entry">
       
-        
+        <h4 id="mac安装redis客户端"><a href="#mac安装redis客户端" class="headerlink" title="mac安装redis客户端"></a>mac安装redis客户端</h4><ul>
+<li>安装brew cask : 在终端中输入下面语句 回车</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; &lt; /dev/null 2&gt; /dev/null ; brew install caskroom/cask/brew-cask 2&gt; /dev/null</div></pre></td></tr></table></figure>
+<ul>
+<li>安装Redis Desktop Manager<br>安装完cask之后，在终端中输入 回车</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask install rdm</div></pre></td></tr></table></figure>
+<h4 id="通过python方式连接redis"><a href="#通过python方式连接redis" class="headerlink" title="通过python方式连接redis"></a>通过python方式连接redis</h4><p>1.安装python redis</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install redis</div></pre></td></tr></table></figure>
+<p>2.使用redis增删改查<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import redis</div><div class="line">r = redis.StrictRedis(host=&apos;001.pub.redis.xxx.xxx.xxx&apos;,port=xxx,db=0)</div><div class="line">print r.get(&apos;ip:172.16.68.169&apos;)</div></pre></td></tr></table></figure></p>
+<p>get后面为key</p>
+<h4 id="使用原生方式连接"><a href="#使用原生方式连接" class="headerlink" title="使用原生方式连接"></a>使用原生方式连接</h4><p>需要在服务器安装redis client<br>redis-cli -h 001.pub.redis.xx.xx.xx -p 6379</p>
+<p>查看以这个开头的所有key<br>keys stanlee:de:access*</p>
+<p>查看value:<br>get stanlee:de:access:process:kk</p>
+
       
     </div>
     <footer>
@@ -116,7 +131,17 @@
           </div>
         
         
+  
+  <div class="categories">
+    <a href="/categories/java/">java</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/tags/java/">java</a>
+  </div>
+
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -196,9 +221,9 @@
   
     <li><a href="/tags/essay/">essay</a><small>1</small></li>
   
-    <li><a href="/tags/java/">java</a><small>2</small></li>
+    <li><a href="/tags/java/">java</a><small>5</small></li>
   
-    <li><a href="/tags/python/">python</a><small>1</small></li>
+    <li><a href="/tags/python/">python</a><small>2</small></li>
   
     <li><a href="/tags/前端/">前端</a><small>1</small></li>
   
@@ -220,6 +245,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/07/27/markdown语法/">markdown语法</a>
+      </li>
+    
+      <li>
         <a href="/2017/07/27/springboot搭建feature回归系统-三-springboot框架/">springboot搭建feature回归系统(三)-springboot框架</a>
       </li>
     
@@ -229,6 +258,10 @@
     
       <li>
         <a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">springboot搭建feature回归系统(二)mybatis</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/24/python的多线程/">python的多线程</a>
       </li>
     
       <li>
@@ -244,6 +277,10 @@
       </li>
     
       <li>
+        <a href="/2017/07/19/python接口测试注意点/">python接口测试注意点</a>
+      </li>
+    
+      <li>
         <a href="/2017/07/11/特征值mock工具/">特征值mock工具</a>
       </li>
     
@@ -253,18 +290,6 @@
     
       <li>
         <a href="/2017/05/11/json自定义格式内容对比工具/">json自定义格式内容对比工具</a>
-      </li>
-    
-      <li>
-        <a href="/2017/03/11/前端mvc涉略/">前端mvc涉略</a>
-      </li>
-    
-      <li>
-        <a href="/2017/02/12/测试攻城狮/">测试攻城狮的要求</a>
-      </li>
-    
-      <li>
-        <a href="/2017/01/12/搜集好博客-做早课/">搜集好博客,做早课</a>
       </li>
     
   </ul>

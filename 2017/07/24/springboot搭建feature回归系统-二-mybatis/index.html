@@ -89,6 +89,7 @@
 <h4 id="0-创建数据库"><a href="#0-创建数据库" class="headerlink" title="0.创建数据库"></a>0.创建数据库</h4><p>创建数据库，建立表，添加一条记录</p>
 <p><img src="/images/数据库配置.png" alt="“数据库表”"><br><img src="/images/添加数据库.png" alt="“添加一条记录”"> </p>
 <h4 id="1-创建product实体类"><a href="#1-创建product实体类" class="headerlink" title="1.创建product实体类"></a>1.创建product实体类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class Product &#123;</div><div class="line">    private  int id;</div><div class="line">    private String productName;</div><div class="line">    private String comment;</div><div class="line">    private  String status;</div><div class="line">    //批量添加set,get方法</div></pre></td></tr></table></figure>
+<p>ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="external">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)” &lt; /dev/null 2&gt; /dev/null ; brew install caskroom/cask/brew-cask 2&gt; /dev/null</p>
 <h4 id="2-创建配置文件-mybatisConfig-xml"><a href="#2-创建配置文件-mybatisConfig-xml" class="headerlink" title="2.创建配置文件 mybatisConfig.xml"></a>2.创建配置文件 mybatisConfig.xml</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE configuration</div><div class="line">        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</div><div class="line">        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;configuration&gt;</div><div class="line">    &lt;environments default=&quot;development&quot;&gt;</div><div class="line">        &lt;environment id=&quot;development&quot;&gt;</div><div class="line">            &lt;transactionManager type=&quot;JDBC&quot;/&gt;</div><div class="line">            &lt;dataSource type=&quot;POOLED&quot;&gt;</div><div class="line">                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;</div><div class="line">                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://xx&quot;/&gt;</div><div class="line">                &lt;property name=&quot;username&quot; value=&quot;xx&quot;/&gt;</div><div class="line">                &lt;property name=&quot;password&quot; value=&quot;xx&quot;/&gt;</div><div class="line">            &lt;/dataSource&gt;</div><div class="line">        &lt;/environment&gt;</div><div class="line">    &lt;/environments&gt;</div><div class="line">    &lt;mappers&gt;</div><div class="line">        &lt;mapper resource=&quot;mapping/procuctMapper.xml&quot;/&gt;</div><div class="line">    &lt;/mappers&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
 <p>其中mybatisConfig.xml中引用map文件的方式种类举例</p>
 <ul>
@@ -104,7 +105,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;package name = &quot;a.b.c&quot;&gt;</div></pre></td></tr></table></figure>
 <h4 id="3-创建dao文件-ProductMapper-java"><a href="#3-创建dao文件-ProductMapper-java" class="headerlink" title="3. 创建dao文件 ProductMapper.java"></a>3. 创建dao文件 ProductMapper.java</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public interface ProductMapper &#123;</div><div class="line">    Product selectByStatus(String  status);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="4-创建map文件-productMapper-xml"><a href="#4-创建map文件-productMapper-xml" class="headerlink" title="4. 创建map文件 productMapper.xml"></a>4. 创建map文件 productMapper.xml</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</div><div class="line">&lt;mapper namespace=&quot;com.wacai.qa.dao.ProductMapper&quot;&gt;</div><div class="line"></div><div class="line">#注意，上面的mapper的namespace应该为dao的地址</div><div class="line">#注意：这里的id :selectByStatus 与上面的接口名一致</div><div class="line"></div><div class="line">    &lt;select id=&quot;selectByStatus&quot; parameterType=&quot;java.lang.String&quot; resultType=&quot;com.wacai.qa.model.Product&quot;&gt;</div><div class="line">        select *</div><div class="line">        from product</div><div class="line">        where status = #&#123;status&#125;</div><div class="line">    &lt;/select&gt;</div><div class="line"></div><div class="line">&lt;/mapper&gt;</div></pre></td></tr></table></figure>
+<h4 id="4-创建map文件-productMapper-xml"><a href="#4-创建map文件-productMapper-xml" class="headerlink" title="4. 创建map文件 productMapper.xml"></a>4. 创建map文件 productMapper.xml</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</div><div class="line">&lt;mapper namespace=&quot;xx.xx.xx.dao.ProductMapper&quot;&gt;</div><div class="line"></div><div class="line">#注意，上面的mapper的namespace应该为dao的地址</div><div class="line">#注意：这里的id :selectByStatus 与上面的接口名一致</div><div class="line"></div><div class="line">    &lt;select id=&quot;selectByStatus&quot; parameterType=&quot;java.lang.String&quot; resultType=&quot;xx.xx.xx.model.Product&quot;&gt;</div><div class="line">        select *</div><div class="line">        from product</div><div class="line">        where status = #&#123;status&#125;</div><div class="line">    &lt;/select&gt;</div><div class="line"></div><div class="line">&lt;/mapper&gt;</div></pre></td></tr></table></figure>
 <select id="findeById" parametertype="int" resulttype="jike.book.pojo.JikeUser"><br>    select * from JikeUser where id  = # {id}<br></select>
 
 
@@ -137,7 +138,7 @@
         
         
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2017/07/20/java-log相关/">java log相关</a>
+            <em>下一篇: </em><a href="/2017/07/24/python的多线程/">python的多线程</a>
           </div>
           <div class="clearfix"></div>
         
@@ -238,9 +239,9 @@
   
     <li><a href="/tags/essay/">essay</a><small>1</small></li>
   
-    <li><a href="/tags/java/">java</a><small>2</small></li>
+    <li><a href="/tags/java/">java</a><small>5</small></li>
   
-    <li><a href="/tags/python/">python</a><small>1</small></li>
+    <li><a href="/tags/python/">python</a><small>2</small></li>
   
     <li><a href="/tags/前端/">前端</a><small>1</small></li>
   
@@ -262,6 +263,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/07/27/markdown语法/">markdown语法</a>
+      </li>
+    
+      <li>
         <a href="/2017/07/27/springboot搭建feature回归系统-三-springboot框架/">springboot搭建feature回归系统(三)-springboot框架</a>
       </li>
     
@@ -271,6 +276,10 @@
     
       <li>
         <a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">springboot搭建feature回归系统(二)mybatis</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/24/python的多线程/">python的多线程</a>
       </li>
     
       <li>
@@ -286,6 +295,10 @@
       </li>
     
       <li>
+        <a href="/2017/07/19/python接口测试注意点/">python接口测试注意点</a>
+      </li>
+    
+      <li>
         <a href="/2017/07/11/特征值mock工具/">特征值mock工具</a>
       </li>
     
@@ -295,18 +308,6 @@
     
       <li>
         <a href="/2017/05/11/json自定义格式内容对比工具/">json自定义格式内容对比工具</a>
-      </li>
-    
-      <li>
-        <a href="/2017/03/11/前端mvc涉略/">前端mvc涉略</a>
-      </li>
-    
-      <li>
-        <a href="/2017/02/12/测试攻城狮/">测试攻城狮的要求</a>
-      </li>
-    
-      <li>
-        <a href="/2017/01/12/搜集好博客-做早课/">搜集好博客,做早课</a>
       </li>
     
   </ul>
