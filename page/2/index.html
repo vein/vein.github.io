@@ -73,6 +73,230 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2017-07-19T11:07:58.000Z"><a href="/2017/07/19/java代码基本语法辨析/">2017-07-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/07/19/java代码基本语法辨析/">java代码基本语法辨析</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>final可以修饰类，方法，属性（因为不能被改变，不能和abstract共同使用）</p>
+<p>final 用于声明属性，方法和类，分别表示属性不可变，方法不可覆盖，类不可继承。<br>finally 是异常处理语句结构的一部分，表示总是执行。<br>finalize 是Object类的一个方法，在垃圾收集器执行时会先调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源回收，例如关闭文件等</p>
+<h3 id="类-final"><a href="#类-final" class="headerlink" title="类 final"></a>类 final</h3><p>不能被继承，没有子类，final类中的方法默认是final的。<br>在设计类时候，如果这个类不需要有子类，类的实现细节不允许改变，并且确信这个类不会载被扩展，那么就设计为final类。</p>
+<h3 id="方法-final"><a href="#方法-final" class="headerlink" title="方法 final"></a>方法 final</h3><p>如果一个类不允许其子类覆盖某个方法，则可以把这个方法声明为final方法。</p>
+<p>面向对象的主要特征：抽象、继承、封装、多态性<br>抽象只关注对象有哪些属性和行为，不关注行为细节<br>多态性：允许不同子类型的对象对同一消息作出不同的响应；调用同一个对象的同一个方法得到不同的响应<br>       方法重载：编译时的多态<br>       方法重写：运行时的多态（子类继承父类并重写父类中已有的或抽象的方法）<br>                          （）</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-07-19T09:24:08.000Z"><a href="/2017/07/19/python接口测试注意点/">2017-07-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/07/19/python接口测试注意点/">python接口测试注意点</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>使用flask自己搭建了一套接口自动化框架，编写接口用例时，一些注意点纪录总结下</p>
+<ul>
+<li>数据初始化的两个方法 flask－fixture,用来包裹测试用例<br>setup_module/teardown_module      在所有测试用例执行之后和之后执行。</li>
+</ul>
+<p>setup_function/teardown_function    在每个测试用例之后和之后执行。</p>
+<ul>
+<li>接口用例设计<br>一般接口</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-07-11T11:30:21.000Z"><a href="/2017/07/11/特征值mock工具/">2017-07-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/07/11/特征值mock工具/">特征值mock工具</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="需求背景："><a href="#需求背景：" class="headerlink" title="需求背景："></a>需求背景：</h3><p>风控决策引擎中，根据用户的特征值来得出策略结果，用户特征值部分的产生较为负责，需要一系列数据符合一些规则才会产生需要的特征值，所以测试策略结果时，如果能跳过特征值产生而插入特定数据这一步，直接mock，分层测试，会让测试策略更有效率</p>
+<p>最终效果图<br><img src="/images/test.jpg" alt="“feature－mock工具”"> </p>
+<h3 id="服务端代码分析"><a href="#服务端代码分析" class="headerlink" title="服务端代码分析"></a>服务端代码分析</h3><ul>
+<li>part 1 ： 使用flask框架产生接口路由部分</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">from flask import Flask,jsonify,render_template,url_for,request</div><div class="line">app = Flask(__name__)</div><div class="line"></div><div class="line">@app.route(&apos;/&apos;, methods=[&apos;GET&apos;, &apos;POST&apos;])</div><div class="line">def index():</div><div class="line">    #render_template渲染模版</div><div class="line">    return render_template(&quot;index.html&quot;)</div><div class="line">    </div><div class="line">@app.route(&quot;/changefeatureall&quot;,methods=[&quot;POST&quot;])</div><div class="line">def changefeatureall():</div><div class="line">    commitid = request.form.get(&apos;commitid&apos;)</div><div class="line">    wht_msg.generate(commitid)</div><div class="line"></div><div class="line">    if mydomain:</div><div class="line">        res = &#123;&quot;code&quot;: &quot;0&quot;, &quot;data&quot;:&quot;成功&quot; &#125;</div><div class="line">        wht_msg.update_sql_all(commitid)</div><div class="line">        return jsonify(res)</div></pre></td></tr></table></figure>
+<ul>
+<li>part 2 :数据库连接部分</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">def connect(sql,flag,db=&quot;haixin&quot;):</div><div class="line">    config = &#123;</div><div class="line">              &apos;host&apos;:&apos;xxx&apos;,</div><div class="line">              &apos;port&apos;:xxx,</div><div class="line">              &apos;user&apos;:&apos;xxx&apos;,</div><div class="line">              &apos;password&apos;:&apos;xxx&apos;,</div><div class="line">              &apos;db&apos;:db,</div><div class="line">              &apos;charset&apos;:&apos;utf8mb4&apos;,</div><div class="line">              &apos;cursorclass&apos;:pymysql.cursors.DictCursor,</div><div class="line">              &#125;</div><div class="line"></div><div class="line"></div><div class="line">    connection = pymysql.connect(**config)</div><div class="line">    try:</div><div class="line">        with connection.cursor() as cursor:</div><div class="line">            # 执行sql语句，插入记录</div><div class="line">            cursor.execute(sql);</div><div class="line">            if flag ==1:</div><div class="line">                result  = cursor.fetchone()</div><div class="line">                connection.commit()</div><div class="line">            else:</div><div class="line">                result  = cursor.fetchall()</div><div class="line">                print  len(result)</div><div class="line"></div><div class="line">        # 没有设置默认自动提交，需要主动提交，以保存所执行的语句</div><div class="line">        connection.commit()</div><div class="line">        return result</div><div class="line"></div><div class="line">    finally:</div><div class="line">        connection.close()</div></pre></td></tr></table></figure>
+<ul>
+<li><p>part 3 : 数据库逻辑处理部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#具体逻辑较复杂，展示最简单的插入与 u</div><div class="line">def insert_sql(domain,content):</div><div class="line">    sql = &quot;insert into mk_domain_value(domain_name,content)VALUES(&apos;%s&apos;,&apos;%s&apos;)&quot; %(domain,content)</div><div class="line">    print sql</div><div class="line">    result  =  connect(sql,1)</div><div class="line">    print result</div></pre></td></tr></table></figure>
+</li>
+<li><p>part 4 :前端展示部分</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#展示数据前后端交互部分</div><div class="line">$(document).ready(function() &#123;</div><div class="line">			$.ajax(&#123;</div><div class="line">                    type: &apos;post&apos;,</div><div class="line">                    url: &quot;/changefeatureall&quot;,</div><div class="line">                    dataType: &apos;json&apos;,</div><div class="line">                    data: &#123;</div><div class="line">                        &apos;mydomain&apos;: &apos;http://xxxxxxx&apos;,</div><div class="line">                        &apos;commitid&apos;: $(&apos;#commitid&apos;).val(),</div><div class="line">                    &#125;,</div><div class="line">                    error: function () &#123;</div><div class="line">                        alert(&apos;请求失败，原因可能是：&apos; +&apos;输入参数错误或请求失败&apos; +&apos;！&apos;);</div><div class="line">                    &#125;,</div><div class="line">                    success: function (data) &#123;</div><div class="line">                        alert(&quot;yes&quot;);</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>part 5:功能描述</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.初始化：根据策略，绘制参数输入框，输入参数后，请求制定参数对应的数据，产生初次mock数据</div><div class="line">2.初次mock链接会替换系统中的feature请求链接</div><div class="line">3.此时修改feature结果，就能动态修改mock数据，见截图</div><div class="line">4.替换的请求链接可以还原</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2017-07-10T01:55:20.000Z"><a href="/2017/07/10/springboot搭建feature回归系统(一)需求/">2017-07-10</a></time>
       
       
@@ -486,6 +710,7 @@
     <div class="entry">
       
         <p> <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>!  查看 <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> 问题论坛 <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> </p>
+<p>现在学习很多东西，其实不是这个东西多有难度，而是你有没有时间去关注他，学习他，学习他的边边角角<br>所以本博客主要学习其他博客的知识，view，practise，再内化；因此所有涉及到的博客链接都会保存下来<br>为了防止他人的文档被删除，再做适当的摘抄<br>需要一定的积累再create sth</p>
 <h3 id="参考教程-http-www-jianshu-com-p-6db5c75c167b"><a href="#参考教程-http-www-jianshu-com-p-6db5c75c167b" class="headerlink" title="参考教程:http://www.jianshu.com/p/6db5c75c167b"></a>参考教程:<a href="http://www.jianshu.com/p/6db5c75c167b" target="_blank" rel="external">http://www.jianshu.com/p/6db5c75c167b</a></h3><h3 id="更改主题教程-http-www-jianshu-com-p-469e985288b3-from-jiantop-com"><a href="#更改主题教程-http-www-jianshu-com-p-469e985288b3-from-jiantop-com" class="headerlink" title="更改主题教程:http://www.jianshu.com/p/469e985288b3?from=jiantop.com"></a>更改主题教程:<a href="http://www.jianshu.com/p/469e985288b3?from=jiantop.com" target="_blank" rel="external">http://www.jianshu.com/p/469e985288b3?from=jiantop.com</a></h3><h3 id="添加评论教程-http-www-qtdebug-com-hexo-uyan"><a href="#添加评论教程-http-www-qtdebug-com-hexo-uyan" class="headerlink" title="添加评论教程 :http://www.qtdebug.com/hexo-uyan/"></a>添加评论教程 :<a href="http://www.qtdebug.com/hexo-uyan/" target="_blank" rel="external">http://www.qtdebug.com/hexo-uyan/</a></h3><h3 id="统计浏览量教程"><a href="#统计浏览量教程" class="headerlink" title="统计浏览量教程"></a>统计浏览量教程</h3><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="创建博客文章在python-blog-blog-source-posts那"><a href="#创建博客文章在python-blog-blog-source-posts那" class="headerlink" title="创建博客文章在python/blog/blog/source/_posts那"></a>创建博客文章在python/blog/blog/source/_posts那</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <h3 id="本地服务器启动"><a href="#本地服务器启动" class="headerlink" title="本地服务器启动"></a>本地服务器启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
@@ -609,6 +834,18 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/08/01/前端脚手架react入门/">前端脚手架react入门</a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/01/设计模式/">设计模式</a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/01/压测找瓶颈/">压测找瓶颈</a>
+      </li>
+    
+      <li>
         <a href="/2017/07/27/markdown语法/">markdown语法</a>
       </li>
     
@@ -642,18 +879,6 @@
     
       <li>
         <a href="/2017/07/19/python接口测试注意点/">python接口测试注意点</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/11/特征值mock工具/">特征值mock工具</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/10/springboot搭建feature回归系统(一)需求/">springboot搭建feature回归系统(一)需求</a>
-      </li>
-    
-      <li>
-        <a href="/2017/05/11/json自定义格式内容对比工具/">json自定义格式内容对比工具</a>
       </li>
     
   </ul>

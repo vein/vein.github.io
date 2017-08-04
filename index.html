@@ -73,6 +73,214 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2017-08-01T11:19:03.000Z"><a href="/2017/08/01/前端脚手架react入门/">2017-08-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/08/01/前端脚手架react入门/">前端脚手架react入门</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>链接：<a href="https://segmentfault.com/a/1190000002525359" target="_blank" rel="external">https://segmentfault.com/a/1190000002525359</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-08-01T05:41:48.000Z"><a href="/2017/08/01/设计模式/">2017-08-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/08/01/设计模式/">设计模式</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>参考文档：<a href="http://www.cnblogs.com/maowang1991/archive/2013/04/15/3023236.html" target="_blank" rel="external">http://www.cnblogs.com/maowang1991/archive/2013/04/15/3023236.html</a></p>
+<h3 id="一、设计模式的分类"><a href="#一、设计模式的分类" class="headerlink" title="一、设计模式的分类"></a>一、设计模式的分类</h3><p>总体来说设计模式分为三大类：</p>
+<ul>
+<li><p>创建型模式，共五种：工厂方法模式、抽象工厂模式、单例模式、建造者模式、原型模式。</p>
+</li>
+<li><p>结构型模式，共七种：适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式。</p>
+</li>
+<li><p>行为型模式，共十一种：策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。</p>
+</li>
+</ul>
+<h3 id="1-1简单工厂设计模式"><a href="#1-1简单工厂设计模式" class="headerlink" title="1.1简单工厂设计模式"></a>1.1简单工厂设计模式</h3><p><img src="/images/“简单工厂设计模式”.png" alt="“简单工厂设计模式”"><br>1.创建一个接口<br>2.对多个类(x1,x2,x3)继承以上接口并实现<br>3.创建一个工厂类<br>4.定义一个方法，根据传入名称判断创建类对象(x1,x2,x3)</p>
+<h3 id="1-2多个工厂方法模式"><a href="#1-2多个工厂方法模式" class="headerlink" title="1.2多个工厂方法模式"></a>1.2多个工厂方法模式</h3><p><img src="/images/“多个工厂方法模式”.png" alt="“多个工厂方法模式”"><br>1.同上<br>2.同上<br>3.同上<br>4.直接创建方法a1，a2,a3，分别在方法中创建类对象x1,x2,x3</p>
+<p>改进原因，传递的字符串出错，则不能创建对象；<br>直接调用方法不会出错</p>
+<h3 id="1-3静态工厂方法模式"><a href="#1-3静态工厂方法模式" class="headerlink" title="1.3静态工厂方法模式"></a>1.3静态工厂方法模式</h3><p><img src="/images/静态工厂方法模式.png" alt="静态工厂方法模式"><br>改进原因：不需要创建实例，直接调用即可。</p>
+<h3 id="2-抽象工厂模式（Abstract-Factory）"><a href="#2-抽象工厂模式（Abstract-Factory）" class="headerlink" title="2 抽象工厂模式（Abstract Factory）"></a>2 抽象工厂模式（Abstract Factory）</h3><p><img src="/images/抽象工厂方法模式.png" alt="抽象工厂方法模式"><br>工厂方法模式有一个问题——类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则</p>
+<p>就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码</p>
+<p>如果你现在想增加一个功能：发及时信息，则只需做一个实现类，实现Sender接口，同时做一个工厂类，实现Provider接口，就OK了，无需去改动现成的代码。这样做，拓展性较好！</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-08-01T03:33:52.000Z"><a href="/2017/08/01/压测找瓶颈/">2017-08-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/08/01/压测找瓶颈/">压测找瓶颈</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>jmeter创建好请求后</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2017-07-27T14:32:46.000Z"><a href="/2017/07/27/markdown语法/">2017-07-27</a></time>
       
       
@@ -151,7 +359,8 @@
 <p>ioc(DI):Spring容器来实现这些相互依赖对象的创建、协调工作。获得依赖对象的方式从new object（）变为 由spring来负责控制对象的生命周期（创建、销毁）和对象间的关系</p>
 <p>java的反射：程序在运行时动态生成对象、执行对象的方法，改变对象的属性；spring通过反射实现注入</p>
 <p>aop:面向切面编程；做了一层代理，拦截器<br>在Spring AOP中，有 4 种类型通知(advices)的支持：<br>    通知(Advice)之前 - 该方法执行前运行<br>    通知(Advice)返回之后 – 运行后，该方法返回一个结果<br>    通知(Advice)抛出之后 – 运行方法抛出异常后，<br>    环绕通知 – 环绕方法执行运行，结合以上这三个通知。</p>
-<p>创建ApplicaitonContext后，iosContainer会</p>
+<p>ios的注入类型：构造函数注入、属性注入、接口注入</p>
+<p>构造函数注入：在类的构造函数添加注入，（接口实现类）<br>属性注入：通过setter方法注入；不是所有地方都需要，有选择的在需要的地方注入<br>接口注入：将所有方法抽取到一个接口中，调用类 实现接口提供注入方法</p>
 
       
     </div>
@@ -301,7 +510,7 @@
 <p><img src="/images/数据库配置.png" alt="“数据库表”"><br><img src="/images/添加数据库.png" alt="“添加一条记录”"> </p>
 <h4 id="1-创建product实体类"><a href="#1-创建product实体类" class="headerlink" title="1.创建product实体类"></a>1.创建product实体类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class Product &#123;</div><div class="line">    private  int id;</div><div class="line">    private String productName;</div><div class="line">    private String comment;</div><div class="line">    private  String status;</div><div class="line">    //批量添加set,get方法</div></pre></td></tr></table></figure>
 <p>ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="external">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)” &lt; /dev/null 2&gt; /dev/null ; brew install caskroom/cask/brew-cask 2&gt; /dev/null</p>
-<h4 id="2-创建配置文件-mybatisConfig-xml"><a href="#2-创建配置文件-mybatisConfig-xml" class="headerlink" title="2.创建配置文件 mybatisConfig.xml"></a>2.创建配置文件 mybatisConfig.xml</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE configuration</div><div class="line">        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</div><div class="line">        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;configuration&gt;</div><div class="line">    &lt;environments default=&quot;development&quot;&gt;</div><div class="line">        &lt;environment id=&quot;development&quot;&gt;</div><div class="line">            &lt;transactionManager type=&quot;JDBC&quot;/&gt;</div><div class="line">            &lt;dataSource type=&quot;POOLED&quot;&gt;</div><div class="line">                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;</div><div class="line">                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://xx&quot;/&gt;</div><div class="line">                &lt;property name=&quot;username&quot; value=&quot;xx&quot;/&gt;</div><div class="line">                &lt;property name=&quot;password&quot; value=&quot;xx&quot;/&gt;</div><div class="line">            &lt;/dataSource&gt;</div><div class="line">        &lt;/environment&gt;</div><div class="line">    &lt;/environments&gt;</div><div class="line">    &lt;mappers&gt;</div><div class="line">        &lt;mapper resource=&quot;mapping/procuctMapper.xml&quot;/&gt;</div><div class="line">    &lt;/mappers&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
+<h4 id="2-创建配置文件-mybatisConfig-xml"><a href="#2-创建配置文件-mybatisConfig-xml" class="headerlink" title="2.创建配置文件 mybatisConfig.xml"></a>2.创建配置文件 mybatisConfig.xml</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE configuration</div><div class="line">        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</div><div class="line">        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;configuration&gt;</div><div class="line">    &lt;environments default=&quot;development&quot;&gt;</div><div class="line">        &lt;environment id=&quot;development&quot;&gt;</div><div class="line">            &lt;transactionManager type=&quot;JDBC&quot;/&gt;</div><div class="line">            &lt;dataSource type=&quot;POOLED&quot;&gt;</div><div class="line">                &lt;property name=&quot;driver&quot; value=&quot;xx.xx.xx.xx&quot;/&gt;</div><div class="line">                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://xx&quot;/&gt;</div><div class="line">                &lt;property name=&quot;username&quot; value=&quot;xx&quot;/&gt;</div><div class="line">                &lt;property name=&quot;password&quot; value=&quot;xx&quot;/&gt;</div><div class="line">            &lt;/dataSource&gt;</div><div class="line">        &lt;/environment&gt;</div><div class="line">    &lt;/environments&gt;</div><div class="line">    &lt;mappers&gt;</div><div class="line">        &lt;mapper resource=&quot;mapping/procuctMapper.xml&quot;/&gt;</div><div class="line">    &lt;/mappers&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
 <p>其中mybatisConfig.xml中引用map文件的方式种类举例</p>
 <ul>
 <li>相对路径引用</li>
@@ -581,229 +790,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2017-07-19T11:07:58.000Z"><a href="/2017/07/19/java代码基本语法辨析/">2017-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/07/19/java代码基本语法辨析/">java代码基本语法辨析</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>final可以修饰非抽象类、非抽象类成员方法和方法</p>
-<h3 id="类-final"><a href="#类-final" class="headerlink" title="类 final"></a>类 final</h3><p>不能被继承，没有子类，final类中的方法默认是final的。</p>
-<p>在设计类时候，如果这个类不需要有子类，类的实现细节不允许改变，并且确信这个类不会载被扩展，那么就设计为final类。</p>
-<h3 id="方法-final"><a href="#方法-final" class="headerlink" title="方法 final"></a>方法 final</h3><p> 如果一个类不允许其子类覆盖某个方法，则可以把这个方法声明为final方法。</p>
-<h3 id="常量-final"><a href="#常量-final" class="headerlink" title="常量 final"></a>常量 final</h3>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-              <div style="float: right;color: #E91E63">
-<span id="busuanzi_container_page_pv" style="display: none;">
-阅读次数 <span id="busuanzi_value_page_pv"></span>
-</span></div>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-        
-    <section id="comments">
-        <div id="uyan_frame"></div>
-        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2017-07-19T09:24:08.000Z"><a href="/2017/07/19/python接口测试注意点/">2017-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/07/19/python接口测试注意点/">python接口测试注意点</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>使用flask自己搭建了一套接口自动化框架，编写接口用例时，一些注意点纪录总结下</p>
-<ul>
-<li>数据初始化的两个方法 flask－fixture,用来包裹测试用例<br>setup_module/teardown_module      在所有测试用例执行之后和之后执行。</li>
-</ul>
-<p>setup_function/teardown_function    在每个测试用例之后和之后执行。</p>
-<ul>
-<li>接口用例设计<br>一般接口</li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-              <div style="float: right;color: #E91E63">
-<span id="busuanzi_container_page_pv" style="display: none;">
-阅读次数 <span id="busuanzi_value_page_pv"></span>
-</span></div>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-        
-    <section id="comments">
-        <div id="uyan_frame"></div>
-        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2017-07-11T11:30:21.000Z"><a href="/2017/07/11/特征值mock工具/">2017-07-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/07/11/特征值mock工具/">特征值mock工具</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="需求背景："><a href="#需求背景：" class="headerlink" title="需求背景："></a>需求背景：</h3><p>风控决策引擎中，根据用户的特征值来得出策略结果，用户特征值部分的产生较为负责，需要一系列数据符合一些规则才会产生需要的特征值，所以测试策略结果时，如果能跳过特征值产生而插入特定数据这一步，直接mock，分层测试，会让测试策略更有效率</p>
-<p>最终效果图<br><img src="/images/test.jpg" alt="“feature－mock工具”"> </p>
-<h3 id="服务端代码分析"><a href="#服务端代码分析" class="headerlink" title="服务端代码分析"></a>服务端代码分析</h3><ul>
-<li>part 1 ： 使用flask框架产生接口路由部分</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">from flask import Flask,jsonify,render_template,url_for,request</div><div class="line">app = Flask(__name__)</div><div class="line"></div><div class="line">@app.route(&apos;/&apos;, methods=[&apos;GET&apos;, &apos;POST&apos;])</div><div class="line">def index():</div><div class="line">    #render_template渲染模版</div><div class="line">    return render_template(&quot;index.html&quot;)</div><div class="line">    </div><div class="line">@app.route(&quot;/changefeatureall&quot;,methods=[&quot;POST&quot;])</div><div class="line">def changefeatureall():</div><div class="line">    commitid = request.form.get(&apos;commitid&apos;)</div><div class="line">    wht_msg.generate(commitid)</div><div class="line"></div><div class="line">    if mydomain:</div><div class="line">        res = &#123;&quot;code&quot;: &quot;0&quot;, &quot;data&quot;:&quot;成功&quot; &#125;</div><div class="line">        wht_msg.update_sql_all(commitid)</div><div class="line">        return jsonify(res)</div></pre></td></tr></table></figure>
-<ul>
-<li>part 2 :数据库连接部分</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">def connect(sql,flag,db=&quot;haixin&quot;):</div><div class="line">    config = &#123;</div><div class="line">              &apos;host&apos;:&apos;xxx&apos;,</div><div class="line">              &apos;port&apos;:xxx,</div><div class="line">              &apos;user&apos;:&apos;xxx&apos;,</div><div class="line">              &apos;password&apos;:&apos;xxx&apos;,</div><div class="line">              &apos;db&apos;:db,</div><div class="line">              &apos;charset&apos;:&apos;utf8mb4&apos;,</div><div class="line">              &apos;cursorclass&apos;:pymysql.cursors.DictCursor,</div><div class="line">              &#125;</div><div class="line"></div><div class="line"></div><div class="line">    connection = pymysql.connect(**config)</div><div class="line">    try:</div><div class="line">        with connection.cursor() as cursor:</div><div class="line">            # 执行sql语句，插入记录</div><div class="line">            cursor.execute(sql);</div><div class="line">            if flag ==1:</div><div class="line">                result  = cursor.fetchone()</div><div class="line">                connection.commit()</div><div class="line">            else:</div><div class="line">                result  = cursor.fetchall()</div><div class="line">                print  len(result)</div><div class="line"></div><div class="line">        # 没有设置默认自动提交，需要主动提交，以保存所执行的语句</div><div class="line">        connection.commit()</div><div class="line">        return result</div><div class="line"></div><div class="line">    finally:</div><div class="line">        connection.close()</div></pre></td></tr></table></figure>
-<ul>
-<li><p>part 3 : 数据库逻辑处理部分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#具体逻辑较复杂，展示最简单的插入与 u</div><div class="line">def insert_sql(domain,content):</div><div class="line">    sql = &quot;insert into mk_domain_value(domain_name,content)VALUES(&apos;%s&apos;,&apos;%s&apos;)&quot; %(domain,content)</div><div class="line">    print sql</div><div class="line">    result  =  connect(sql,1)</div><div class="line">    print result</div></pre></td></tr></table></figure>
-</li>
-<li><p>part 4 :前端展示部分</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#展示数据前后端交互部分</div><div class="line">$(document).ready(function() &#123;</div><div class="line">			$.ajax(&#123;</div><div class="line">                    type: &apos;post&apos;,</div><div class="line">                    url: &quot;/changefeatureall&quot;,</div><div class="line">                    dataType: &apos;json&apos;,</div><div class="line">                    data: &#123;</div><div class="line">                        &apos;mydomain&apos;: &apos;http://xxxxxxx&apos;,</div><div class="line">                        &apos;commitid&apos;: $(&apos;#commitid&apos;).val(),</div><div class="line">                    &#125;,</div><div class="line">                    error: function () &#123;</div><div class="line">                        alert(&apos;请求失败，原因可能是：&apos; +&apos;输入参数错误或请求失败&apos; +&apos;！&apos;);</div><div class="line">                    &#125;,</div><div class="line">                    success: function (data) &#123;</div><div class="line">                        alert(&quot;yes&quot;);</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div></pre></td></tr></table></figure>
-<ul>
-<li>part 5:功能描述</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.初始化：根据策略，绘制参数输入框，输入参数后，请求制定参数对应的数据，产生初次mock数据</div><div class="line">2.初次mock链接会替换系统中的feature请求链接</div><div class="line">3.此时修改feature结果，就能动态修改mock数据，见截图</div><div class="line">4.替换的请求链接可以还原</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-              <div style="float: right;color: #E91E63">
-<span id="busuanzi_container_page_pv" style="display: none;">
-阅读次数 <span id="busuanzi_value_page_pv"></span>
-</span></div>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-        
-    <section id="comments">
-        <div id="uyan_frame"></div>
-        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <ul class="page-direction" id="page-direction">
     <li><a class="page-prev" href="javascript:;" title="上一页">
@@ -868,6 +854,18 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/08/01/前端脚手架react入门/">前端脚手架react入门</a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/01/设计模式/">设计模式</a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/01/压测找瓶颈/">压测找瓶颈</a>
+      </li>
+    
+      <li>
         <a href="/2017/07/27/markdown语法/">markdown语法</a>
       </li>
     
@@ -901,18 +899,6 @@
     
       <li>
         <a href="/2017/07/19/python接口测试注意点/">python接口测试注意点</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/11/特征值mock工具/">特征值mock工具</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/10/springboot搭建feature回归系统(一)需求/">springboot搭建feature回归系统(一)需求</a>
-      </li>
-    
-      <li>
-        <a href="/2017/05/11/json自定义格式内容对比工具/">json自定义格式内容对比工具</a>
       </li>
     
   </ul>

@@ -82,11 +82,12 @@
     </header>
     <div class="entry">
       
-        <p>final可以修饰非抽象类、非抽象类成员方法和方法</p>
-<h3 id="类-final"><a href="#类-final" class="headerlink" title="类 final"></a>类 final</h3><p>不能被继承，没有子类，final类中的方法默认是final的。</p>
-<p>在设计类时候，如果这个类不需要有子类，类的实现细节不允许改变，并且确信这个类不会载被扩展，那么就设计为final类。</p>
-<h3 id="方法-final"><a href="#方法-final" class="headerlink" title="方法 final"></a>方法 final</h3><p> 如果一个类不允许其子类覆盖某个方法，则可以把这个方法声明为final方法。</p>
-<h3 id="常量-final"><a href="#常量-final" class="headerlink" title="常量 final"></a>常量 final</h3>
+        <p>final可以修饰类，方法，属性（因为不能被改变，不能和abstract共同使用）</p>
+<p>final 用于声明属性，方法和类，分别表示属性不可变，方法不可覆盖，类不可继承。<br>finally 是异常处理语句结构的一部分，表示总是执行。<br>finalize 是Object类的一个方法，在垃圾收集器执行时会先调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源回收，例如关闭文件等</p>
+<h3 id="类-final"><a href="#类-final" class="headerlink" title="类 final"></a>类 final</h3><p>不能被继承，没有子类，final类中的方法默认是final的。<br>在设计类时候，如果这个类不需要有子类，类的实现细节不允许改变，并且确信这个类不会载被扩展，那么就设计为final类。</p>
+<h3 id="方法-final"><a href="#方法-final" class="headerlink" title="方法 final"></a>方法 final</h3><p>如果一个类不允许其子类覆盖某个方法，则可以把这个方法声明为final方法。</p>
+<p>面向对象的主要特征：抽象、继承、封装、多态性<br>抽象只关注对象有哪些属性和行为，不关注行为细节<br>多态性：允许不同子类型的对象对同一消息作出不同的响应；调用同一个对象的同一个方法得到不同的响应<br>       方法重载：编译时的多态<br>       方法重写：运行时的多态（子类继承父类并重写父类中已有的或抽象的方法）<br>                          （）</p>
+
       
     </div>
     <footer>
@@ -224,6 +225,18 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/08/01/前端脚手架react入门/">前端脚手架react入门</a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/01/设计模式/">设计模式</a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/01/压测找瓶颈/">压测找瓶颈</a>
+      </li>
+    
+      <li>
         <a href="/2017/07/27/markdown语法/">markdown语法</a>
       </li>
     
@@ -257,18 +270,6 @@
     
       <li>
         <a href="/2017/07/19/python接口测试注意点/">python接口测试注意点</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/11/特征值mock工具/">特征值mock工具</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/10/springboot搭建feature回归系统(一)需求/">springboot搭建feature回归系统(一)需求</a>
-      </li>
-    
-      <li>
-        <a href="/2017/05/11/json自定义格式内容对比工具/">json自定义格式内容对比工具</a>
       </li>
     
   </ul>
