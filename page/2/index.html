@@ -73,6 +73,203 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2017-07-24T08:09:59.000Z"><a href="/2017/07/24/python的多线程/">2017-07-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/07/24/python的多线程/">python的多线程</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>python中的线程</p>
+<p>如何使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import threading #首先导入threading 模块，这是使用多线程的前提。</div><div class="line"></div><div class="line"></div><div class="line">threads = []  #创建threads数组</div><div class="line"></div><div class="line">t1 = threading.Thread(target=music,args=(u&apos;爱情买卖&apos;,))  #创建线程t1</div><div class="line"></div><div class="line">threads.append(t1)  #把创建好的线程装入threads数组中</div></pre></td></tr></table></figure></p>
+<p>使用threading.Thread()方法，在这个方法中调用music方法target=music,args方法对music进行传参。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    for t in threads:</div><div class="line">        t.setDaemon(True)  #申明守护线程，必须在start方法调用之前设置，如果不设置为守护线程，程序会被无限刮起。</div><div class="line">        t.start()</div><div class="line"></div><div class="line">    t.join() #在子线程完成运行之前，这个子线程的父线程将一直被阻塞；如果没有添加，则父线程执行完成后，导致子线程终止</div><div class="line"></div><div class="line">    print &quot;all over %s&quot; %ctime()</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-07-20T12:57:58.000Z"><a href="/2017/07/20/java-log相关/">2017-07-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/07/20/java-log相关/">java log相关</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.idea中log4j无法识别log的原因是没有安装Lombok插件</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-07-20T05:09:19.000Z"><a href="/2017/07/20/java多线程/">2017-07-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/07/20/java多线程/">java多线程</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>List<string> list = new ArrayList&lt;&gt;()</string></p>
+<p>多线程：指的是这个程序（一个进程）运行时产生了不止一个线程<br>并行与并发：<br>    并行：多个cpu实例或者多台机器同时执行一段处理逻辑，是真正的同时。<br>    并发：通过cpu调度算法，让用户看上去同时执行，实际上从cpu操作层面不是真正的同时。并发往往在场景中有公用的资源，那么针对这个公用的资源往往产生瓶颈，我们会用TPS或者QPS来反应这个系统的处理能力。</p>
+<pre><code>http://172.16.50.50:8086/query?pretty=true&amp;db=decision_assistant&amp;q=SELECT* FROM func_result WHERE strategyCode=%27fansizheStrategy%27 and uuid=%2743338ab0-16a2-4cd5-a964-2235f534cb21%27
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2017-07-19T11:07:58.000Z"><a href="/2017/07/19/java代码基本语法辨析/">2017-07-19</a></time>
       
       
@@ -616,160 +813,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2017-01-12T15:47:20.000Z"><a href="/2017/01/12/搜集好博客-做早课/">2017-01-12</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/01/12/搜集好博客-做早课/">搜集好博客,做早课</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h4 id="测试的博客"><a href="#测试的博客" class="headerlink" title="测试的博客"></a>测试的博客</h4><ul>
-<li>理论<ul>
-<li><a href="http://www.cnblogs.com/beer/" target="_blank" rel="external">http://www.cnblogs.com/beer/</a></li>
-</ul>
-</li>
-</ul>
-<h4 id="开发的博客"><a href="#开发的博客" class="headerlink" title="开发的博客"></a>开发的博客</h4><ul>
-<li>java<ul>
-<li><a href="http://www.jianshu.com/u/c55c7a9c8de6" target="_blank" rel="external">http://www.jianshu.com/u/c55c7a9c8de6</a></li>
-<li><a href="http://www.cnblogs.com/wxd0108/default.html?page=2" target="_blank" rel="external">http://www.cnblogs.com/wxd0108/default.html?page=2</a>  讲得有点深 </li>
-<li><a href="http://www.mamicode.com/info-detail-517008.html" target="_blank" rel="external">http://www.mamicode.com/info-detail-517008.html</a>  多线程</li>
-<li><a href="http://www.jianshu.com/u/957e5f43e612" target="_blank" rel="external">http://www.jianshu.com/u/957e5f43e612</a>  go语言，三方包</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-              <div style="float: right;color: #E91E63">
-<span id="busuanzi_container_page_pv" style="display: none;">
-阅读次数 <span id="busuanzi_value_page_pv"></span>
-</span></div>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-        
-    <section id="comments">
-        <div id="uyan_frame"></div>
-        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2017-01-11T11:30:21.000Z"><a href="/2017/01/11/博客搭建——基于hexo和git/">2017-01-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/01/11/博客搭建——基于hexo和git/">搭建一个博客</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p> <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>!  查看 <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> 问题论坛 <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> </p>
-<p>现在学习很多东西，其实不是这个东西多有难度，而是你有没有时间去关注他，学习他，学习他的边边角角<br>所以本博客主要学习其他博客的知识，view，practise，再内化；因此所有涉及到的博客链接都会保存下来<br>为了防止他人的文档被删除，再做适当的摘抄<br>需要一定的积累再create sth</p>
-<h3 id="参考教程-http-www-jianshu-com-p-6db5c75c167b"><a href="#参考教程-http-www-jianshu-com-p-6db5c75c167b" class="headerlink" title="参考教程:http://www.jianshu.com/p/6db5c75c167b"></a>参考教程:<a href="http://www.jianshu.com/p/6db5c75c167b" target="_blank" rel="external">http://www.jianshu.com/p/6db5c75c167b</a></h3><h3 id="更改主题教程-http-www-jianshu-com-p-469e985288b3-from-jiantop-com"><a href="#更改主题教程-http-www-jianshu-com-p-469e985288b3-from-jiantop-com" class="headerlink" title="更改主题教程:http://www.jianshu.com/p/469e985288b3?from=jiantop.com"></a>更改主题教程:<a href="http://www.jianshu.com/p/469e985288b3?from=jiantop.com" target="_blank" rel="external">http://www.jianshu.com/p/469e985288b3?from=jiantop.com</a></h3><h3 id="添加评论教程-http-www-qtdebug-com-hexo-uyan"><a href="#添加评论教程-http-www-qtdebug-com-hexo-uyan" class="headerlink" title="添加评论教程 :http://www.qtdebug.com/hexo-uyan/"></a>添加评论教程 :<a href="http://www.qtdebug.com/hexo-uyan/" target="_blank" rel="external">http://www.qtdebug.com/hexo-uyan/</a></h3><h3 id="统计浏览量教程"><a href="#统计浏览量教程" class="headerlink" title="统计浏览量教程"></a>统计浏览量教程</h3><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="创建博客文章在python-blog-blog-source-posts那"><a href="#创建博客文章在python-blog-blog-source-posts那" class="headerlink" title="创建博客文章在python/blog/blog/source/_posts那"></a>创建博客文章在python/blog/blog/source/_posts那</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<h3 id="本地服务器启动"><a href="#本地服务器启动" class="headerlink" title="本地服务器启动"></a>本地服务器启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="部署站点"><a href="#部署站点" class="headerlink" title="部署站点"></a>部署站点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<h3 id="git地址："><a href="#git地址：" class="headerlink" title="git地址："></a>git地址：</h3><p><a href="https://vein.github.io/" target="_blank" rel="external">https://vein.github.io/</a></p>
-<h3 id="本地地址"><a href="#本地地址" class="headerlink" title="本地地址"></a>本地地址</h3><p>/Users/qingzhou/haixin/python/blog/blog</p>
-<hr>
-<h4 id="hexo常用指令"><a href="#hexo常用指令" class="headerlink" title="hexo常用指令"></a>hexo常用指令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g <span class="comment">#安装  </span></div><div class="line">npm update hexo -g <span class="comment">#升级  </span></div><div class="line">hexo init <span class="comment">#初始化</span></div></pre></td></tr></table></figure>
-<h4 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo n <span class="string">"我的博客"</span> == hexo new <span class="string">"我的博客"</span> <span class="comment">#新建文章</span></div><div class="line">hexo clean </div><div class="line">hexo p == hexo publish</div><div class="line">hexo g == hexo generate<span class="comment">#生成</span></div><div class="line">hexo s == hexo server <span class="comment">#启动服务预览</span></div><div class="line">hexo d == hexo deploy<span class="comment">#部署</span></div></pre></td></tr></table></figure>
-<h3 id="my-catagory"><a href="#my-catagory" class="headerlink" title="my catagory"></a>my catagory</h3><p>  首页: /<br>  java: /categories/java/<br>  python: /categories/python/<br>  理论: /categories/theory/<br>  框架: /categories/automation/<br>  杂: /categories/essay/</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-              <div style="float: right;color: #E91E63">
-<span id="busuanzi_container_page_pv" style="display: none;">
-阅读次数 <span id="busuanzi_value_page_pv"></span>
-</span></div>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-        
-    <section id="comments">
-        <div id="uyan_frame"></div>
-        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <ul class="page-direction" id="page-direction">
     <li><a class="page-prev" href="javascript:;" title="上一页">
@@ -785,12 +828,14 @@
     </a></li>
 </ul>
 
-    <nav id="page-list" class="page-list"><a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span></nav>
+    <nav id="page-list" class="page-list"><a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next</a></nav>
 
 <nav id="pagination">
   
     <a href="/" class="alignleft prev">上一页</a>
   
+  
+    <a href="/page/3/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -834,11 +879,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/08/09/git学习记录/">git学习记录</a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/08/springboot搭建feature回归系统-四-前端框架/">springboot搭建feature回归系统(四)前端框架</a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/08/设计模式-二/">设计模式(二)</a>
+      </li>
+    
+      <li>
         <a href="/2017/08/01/前端脚手架react入门/">前端脚手架react入门</a>
       </li>
     
       <li>
-        <a href="/2017/08/01/设计模式/">设计模式</a>
+        <a href="/2017/08/01/设计模式/">设计模式(一)</a>
       </li>
     
       <li>
@@ -867,18 +924,6 @@
     
       <li>
         <a href="/2017/07/20/java-log相关/">java log相关</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/20/java多线程/">java多线程</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/19/java代码基本语法辨析/">java代码基本语法辨析</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/19/python接口测试注意点/">python接口测试注意点</a>
       </li>
     
   </ul>

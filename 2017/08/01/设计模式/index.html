@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>设计模式 | 海xin的网络日志</title>
+  <title>设计模式(一) | 海xin的网络日志</title>
   <meta name="author" content="haixin">
   
   <meta name="description" content="开始搞掂事情">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="设计模式"/>
+  <meta property="og:title" content="设计模式(一)"/>
   <meta property="og:site_name" content="海xin的网络日志"/>
 
   
@@ -76,7 +76,7 @@
       
       
   
-    <h1 class="title">设计模式</h1>
+    <h1 class="title">设计模式(一)</h1>
   
 
     </header>
@@ -96,10 +96,11 @@
 <h3 id="1-2多个工厂方法模式"><a href="#1-2多个工厂方法模式" class="headerlink" title="1.2多个工厂方法模式"></a>1.2多个工厂方法模式</h3><p><img src="/images/多个工厂方法模式.png" alt="“多个工厂方法模式”"><br>1.同上<br>2.同上<br>3.同上<br>4.直接创建方法a1，a2,a3，分别在方法中创建类对象x1,x2,x3</p>
 <p>改进原因，传递的字符串出错，则不能创建对象；<br>直接调用方法不会出错</p>
 <h3 id="1-3静态工厂方法模式"><a href="#1-3静态工厂方法模式" class="headerlink" title="1.3静态工厂方法模式"></a>1.3静态工厂方法模式</h3><p>改进原因：不需要创建实例，直接调用即可。</p>
-<h3 id="2-抽象工厂模式（Abstract-Factory）"><a href="#2-抽象工厂模式（Abstract-Factory）" class="headerlink" title="2 抽象工厂模式（Abstract Factory）"></a>2 抽象工厂模式（Abstract Factory）</h3><p><img src="/images/抽象工厂模式.png" alt="“抽象工厂模式”"></p>
-<p>工厂方法模式有一个问题——类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则</p>
+<h3 id="2-抽象工厂模式（Abstract-Factory）"><a href="#2-抽象工厂模式（Abstract-Factory）" class="headerlink" title="2 抽象工厂模式（Abstract Factory）"></a>2 抽象工厂模式（Abstract Factory）</h3><p><img src="/images/抽象工厂模式.png" alt="“抽象工厂模式”"><br>工厂方法模式有一个问题——类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则</p>
 <p>就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码</p>
 <p>如果你现在想增加一个功能：发及时信息，则只需做一个实现类，实现Sender接口，同时做一个工厂类，实现Provider接口，就OK了，无需去改动现成的代码。这样做，拓展性较好！</p>
+<p>原型模式<br><img src="/images/原型模式.png" alt="“原型模式”"></p>
+<p><img src="/images/原型管理器.png" alt="“原型模式带原型管理器”"></p>
 
       
     </div>
@@ -238,11 +239,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/08/09/git学习记录/">git学习记录</a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/08/springboot搭建feature回归系统-四-前端框架/">springboot搭建feature回归系统(四)前端框架</a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/08/设计模式-二/">设计模式(二)</a>
+      </li>
+    
+      <li>
         <a href="/2017/08/01/前端脚手架react入门/">前端脚手架react入门</a>
       </li>
     
       <li>
-        <a href="/2017/08/01/设计模式/">设计模式</a>
+        <a href="/2017/08/01/设计模式/">设计模式(一)</a>
       </li>
     
       <li>
@@ -271,18 +284,6 @@
     
       <li>
         <a href="/2017/07/20/java-log相关/">java log相关</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/20/java多线程/">java多线程</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/19/java代码基本语法辨析/">java代码基本语法辨析</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/19/python接口测试注意点/">python接口测试注意点</a>
       </li>
     
   </ul>

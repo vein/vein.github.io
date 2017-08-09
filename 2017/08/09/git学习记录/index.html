@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档 | 海xin的网络日志</title>
+  <title>git学习记录 | 海xin的网络日志</title>
   <meta name="author" content="haixin">
   
   <meta name="description" content="开始搞掂事情">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="git学习记录"/>
   <meta property="og:site_name" content="海xin的网络日志"/>
 
   
@@ -67,123 +67,131 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">归档</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2017-08-09T02:46:21.000Z"><a href="/2017/08/09/git学习记录/">2017-08-09</a></time>
+      
+      
+  
+    <h1 class="title">git学习记录</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li><p>git diff ＋修改的文件，可以看到文件具体修改了什么</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff readme.tet</div></pre></td></tr></table></figure>
+</li>
+<li><p>git log 查看历史提交记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git log --pretty=online</div><div class="line"></div><div class="line">3628164fb26d48395383f8f31179f24e0882e1e0 append GPL</div><div class="line">ea34578d5496d7dd233c827ed32a8cd576c5ee85 add distributed</div><div class="line">cb926e7ea50ad11b8f9e909c05226233bf755030 wrote a readme file</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上第一列为commit_id（版本号）；第二列为提交名</p>
+<ul>
+<li>git中HEAD表示当前版本，即最新版本；HEAD^表示上个版本 HEAD^^表示上上个版本<br>当要把当前版本回退到上个版本，可以用 <em>git reset</em> 命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD^</div><div class="line"></div><div class="line">HEAD is now at ea34578 add distributed</div><div class="line"></div><div class="line">git reset --hard 3628164</div><div class="line"></div><div class="line">HEAD is now at 3628164 append GPL</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上，3628164没有必要写全，git会自动找，就能回到append Gpl 这个版本的提交了</p>
+<p><img src="/images/版本回退.png" alt="“版本回退”"></p>
+<p>－ <em>git reflog</em>记录历史每次命令，可以找到回退前的commitid</p>
+<p>创建分支并推送到远程<br>git branch testcase<br>git push origin testcase</p>
 
-  <div class="archive">
+      
+    </div>
+    <footer>
+      
+
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2017/08/08/springboot搭建feature回归系统-四-前端框架/">springboot搭建feature回归系统(四)前端框架</a>
+          </div>
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2017/08/09/git学习记录/">
+                  http://vein.com/2017/08/09/git学习记录/
+                </a>
+              </span>
+            
+          </div>
+        
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-08-09T02:46:21.000Z"><a href="/2017/08/09/git学习记录/">2017-08-09</a></time>
-            
-              <h1 class="title"><a href="/2017/08/09/git学习记录/">git学习记录</a></h1>
-            
-          </header>
-        </div>
-      </article>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-08-08T11:23:32.000Z"><a href="/2017/08/08/springboot搭建feature回归系统-四-前端框架/">2017-08-08</a></time>
-            
-              <h1 class="title"><a href="/2017/08/08/springboot搭建feature回归系统-四-前端框架/">springboot搭建feature回归系统(四)前端框架</a></h1>
-            
-          </header>
-        </div>
-      </article>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-08-08T08:24:02.000Z"><a href="/2017/08/08/设计模式-二/">2017-08-08</a></time>
-            
-              <h1 class="title"><a href="/2017/08/08/设计模式-二/">设计模式(二)</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <a class="addthis_button_sinaweibo_like"></a>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-08-01T11:19:03.000Z"><a href="/2017/08/01/前端脚手架react入门/">2017-08-01</a></time>
-            
-              <h1 class="title"><a href="/2017/08/01/前端脚手架react入门/">前端脚手架react入门</a></h1>
-            
-          </header>
-        </div>
-      </article>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-08-01T05:41:48.000Z"><a href="/2017/08/01/设计模式/">2017-08-01</a></time>
-            
-              <h1 class="title"><a href="/2017/08/01/设计模式/">设计模式(一)</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <a class="addthis_button_linkedin"></a>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-08-01T03:33:52.000Z"><a href="/2017/08/01/压测找瓶颈/">2017-08-01</a></time>
-            
-              <h1 class="title"><a href="/2017/08/01/压测找瓶颈/">压测找瓶颈</a></h1>
-            
-          </header>
-        </div>
-      </article>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-07-27T14:32:46.000Z"><a href="/2017/07/27/markdown语法/">2017-07-27</a></time>
-            
-              <h1 class="title"><a href="/2017/07/27/markdown语法/">markdown语法</a></h1>
-            
-          </header>
-        </div>
-      </article>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-07-27T04:40:54.000Z"><a href="/2017/07/27/springboot搭建feature回归系统-三-springboot框架/">2017-07-27</a></time>
-            
-              <h1 class="title"><a href="/2017/07/27/springboot搭建feature回归系统-三-springboot框架/">springboot搭建feature回归系统(三)-springboot框架</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-07-25T02:23:53.000Z"><a href="/2017/07/25/redis安装与操作/">2017-07-25</a></time>
-            
-              <h1 class="title"><a href="/2017/07/25/redis安装与操作/">redis安装与操作</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2017-07-24T13:32:57.000Z"><a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">2017-07-24</a></time>
-            
-              <h1 class="title"><a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">springboot搭建feature回归系统(二)mybatis</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+
+      
+              <div style="float: right;color: #E91E63">
+<span id="busuanzi_container_page_pv" style="display: none;">
+阅读次数 <span id="busuanzi_value_page_pv"></span>
+</span></div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+</section>
+
+
+
+
+
+
+        
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/java script" src="http://v2.uyan.cc/code/uyan.js?uid=2138540"></script>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
