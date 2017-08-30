@@ -82,7 +82,11 @@
     </header>
     <div class="entry">
       
-        
+        <p>链接：<a href="https://adminlte.io/" target="_blank" rel="external">https://adminlte.io/</a></p>
+<p>select<br>case when count(*)&gt;0 then 1 else 0 end as gjj_company_is_black –用户的公积金单位名称是否命中公积金黑名单库<br>from raw.noe_black_single<br>where source=’GJJ’ and reason=’gjj_suspecious_company’ and uid=${uid}</p>
+<p>select * from raw.noe_black_single a<br>where pk like ‘${mob}#mob#%’<br>and source in(‘project-d’,’puhui’,’post_loan_performance’,’TD’,’ZM’)<br>and black_type=’mob’ and is_valid=1</p>
+<p>select max(case when b.content is not null then 1 else 0 end) as dpn_user_profile_mob_blacklist<br>from   ods_noe_haixin_black_single_mob b where uid = ${uid}</p>
+
       
     </div>
     <footer>
@@ -220,6 +224,14 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/08/22/1.测试用例的断言需要做/"></a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/22/前端的一些总结/">前端的一些总结</a>
+      </li>
+    
+      <li>
         <a href="/2017/08/09/git学习记录/">git学习记录</a>
       </li>
     
@@ -257,14 +269,6 @@
     
       <li>
         <a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">springboot搭建feature回归系统(二)mybatis</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/24/python的多线程/">python的多线程</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/20/java-log相关/">java log相关</a>
       </li>
     
   </ul>

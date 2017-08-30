@@ -83,11 +83,30 @@
     <div class="entry">
       
         <p>学习springboot框架之前，先了解下spring的基础知识</p>
-<p>ioc(DI):Spring容器来实现这些相互依赖对象的创建、协调工作。获得依赖对象的方式从new object（）变为 由spring来负责控制对象的生命周期（创建、销毁）和对象间的关系</p>
-<p>java的反射：程序在运行时动态生成对象、执行对象的方法，改变对象的属性；spring通过反射实现注入</p>
-<p>aop:面向切面编程；做了一层代理，拦截器<br>在Spring AOP中，有 4 种类型通知(advices)的支持：<br>    通知(Advice)之前 - 该方法执行前运行<br>    通知(Advice)返回之后 – 运行后，该方法返回一个结果<br>    通知(Advice)抛出之后 – 运行方法抛出异常后，<br>    环绕通知 – 环绕方法执行运行，结合以上这三个通知。</p>
-<p>ios的注入类型：构造函数注入、属性注入、接口注入</p>
-<p>构造函数注入：在类的构造函数添加注入，（接口实现类）<br>属性注入：通过setter方法注入；不是所有地方都需要，有选择的在需要的地方注入<br>接口注入：将所有方法抽取到一个接口中，调用类 实现接口提供注入方法</p>
+<ul>
+<li>ioc(DI):Spring容器来实现这些相互依赖对象的创建、协调工作。获得依赖对象的方式从new object（）变为 由spring来负责控制对象的生命周期（创建、销毁）和对象间的关系</li>
+<li>java的反射：程序在运行时动态生成对象、执行对象的方法，改变对象的属性；spring通过反射实现注入</li>
+<li>aop:面向切面编程；做了一层代理，拦截器</li>
+</ul>
+<h4 id="在Spring-AOP中，有-4-种类型通知-advices-的支持："><a href="#在Spring-AOP中，有-4-种类型通知-advices-的支持：" class="headerlink" title="在Spring AOP中，有 4 种类型通知(advices)的支持："></a>在Spring AOP中，有 4 种类型通知(advices)的支持：</h4><pre><code>通知(Advice)之前 - 该方法执行前运行
+通知(Advice)返回之后 – 运行后，该方法返回一个结果
+通知(Advice)抛出之后 – 运行方法抛出异常后，
+环绕通知 – 环绕方法执行运行，结合以上这三个通知。
+</code></pre><h4 id="ios的注入类型：构造函数注入、属性注入、接口注入"><a href="#ios的注入类型：构造函数注入、属性注入、接口注入" class="headerlink" title="ios的注入类型：构造函数注入、属性注入、接口注入"></a>ios的注入类型：构造函数注入、属性注入、接口注入</h4><p>构造函数注入：在类的构造函数添加注入，（接口实现类）<br>属性注入：通过setter方法注入；不是所有地方都需要，有选择的在需要的地方注入<br>接口注入：将所有方法抽取到一个接口中，调用类 实现接口提供注入方法</p>
+<h4 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h4><ol>
+<li><p>使用bean</p>
+<figure class="highlight plain"><figcaption><span>, @Resource，可以通过byTYPE（@Autowired）、byNAME（@Resource）的方式获取Bean；```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2. 注册bean</div><div class="line"></div><div class="line">​       ```  @Component , @Repository , @ Controller , @Service , @Configration这些注解都是把你要实例化的对象转化成一个Bean，放在IoC容器中</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@beans</div></pre></td></tr></table></figure>
+<p>@Bean明确地指示了一种方法，什么方法呢——产生一个bean的方法，并且交给Spring容器管理；从这我们就明白了为啥@Bean是放在方法的注释上了，因为它很明确地告诉被注释的方法，你给我产生一个Bean，然后交给Spring容器，剩下的你就别管了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@Autowired</div></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/bossen/p/5824067.html" target="_blank" rel="external">http://www.cnblogs.com/bossen/p/5824067.html</a></p>
+<p>@Bean 一般和 @Component或者@Configuration 一起使用。</p>
+<p>@Configuration:用于注解类、接口、注解的定义</p>
+<p>@Component：与@Configuration的区别是不能定义依赖@bean注解方法</p>
+<p><a href="http://www.cnblogs.com/shuixm/p/5954143.html" target="_blank" rel="external">http://www.cnblogs.com/shuixm/p/5954143.html</a></p>
+<p>用@Configuration注解的类，等价 与XML中配置beans；用@Bean标注方法等价于XML中配置的bean。</p>
 
       
     </div>
@@ -236,6 +255,14 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/08/22/1.测试用例的断言需要做/"></a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/22/前端的一些总结/">前端的一些总结</a>
+      </li>
+    
+      <li>
         <a href="/2017/08/09/git学习记录/">git学习记录</a>
       </li>
     
@@ -273,14 +300,6 @@
     
       <li>
         <a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">springboot搭建feature回归系统(二)mybatis</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/24/python的多线程/">python的多线程</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/20/java-log相关/">java log相关</a>
       </li>
     
   </ul>

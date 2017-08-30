@@ -82,9 +82,9 @@
     </header>
     <div class="entry">
       
-        <ul>
+        <h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><ul>
 <li><p>git diff ＋修改的文件，可以看到文件具体修改了什么</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff readme.tet</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git diff readme.txt</div><div class="line"></div><div class="line">git diff HEAD -- readme.txt</div></pre></td></tr></table></figure>
 </li>
 <li><p>git log 查看历史提交记录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git log --pretty=online</div><div class="line"></div><div class="line">3628164fb26d48395383f8f31179f24e0882e1e0 append GPL</div><div class="line">ea34578d5496d7dd233c827ed32a8cd576c5ee85 add distributed</div><div class="line">cb926e7ea50ad11b8f9e909c05226233bf755030 wrote a readme file</div></pre></td></tr></table></figure>
@@ -98,13 +98,20 @@
 <p>以上，3628164没有必要写全，git会自动找，就能回到append Gpl 这个版本的提交了</p>
 <p><img src="/images/版本回退.png" alt="“版本回退”"></p>
 <p>－ <em>git reflog</em>记录历史每次命令，可以找到回退前的commitid</p>
-<p>创建分支并推送到远程<br>git branch testcase<br>git push origin testcase</p>
+<h3 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h3><h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><p>如果还没有放到暂存区，则可以直接修改<br>如果放到了暂存区（git add）,</p>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>创建分支并推送到远程<br>git branch testcase<br>git push origin testcase</p>
+<p>代码回滚</p>
+<p><a href="http://www.cnblogs.com/iloveyou-sky/p/6534409.html" target="_blank" rel="external">http://www.cnblogs.com/iloveyou-sky/p/6534409.html</a></p>
 
       
     </div>
     <footer>
       
 
+        
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="/2017/08/22/前端的一些总结/">前端的一些总结</a>
+          </div>
         
         
           <div class="alignright post-nav">
@@ -233,6 +240,14 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/08/22/1.测试用例的断言需要做/"></a>
+      </li>
+    
+      <li>
+        <a href="/2017/08/22/前端的一些总结/">前端的一些总结</a>
+      </li>
+    
+      <li>
         <a href="/2017/08/09/git学习记录/">git学习记录</a>
       </li>
     
@@ -270,14 +285,6 @@
     
       <li>
         <a href="/2017/07/24/springboot搭建feature回归系统-二-mybatis/">springboot搭建feature回归系统(二)mybatis</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/24/python的多线程/">python的多线程</a>
-      </li>
-    
-      <li>
-        <a href="/2017/07/20/java-log相关/">java log相关</a>
       </li>
     
   </ul>
